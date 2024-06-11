@@ -68,4 +68,30 @@ class TaskViewModel extends GetxController {
     tasks[index] = task;
     saveTask();
   }
+
+  Future<void> showDatePickerDialog(BuildContext context, int index) async {
+    DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime.now(),
+      lastDate: DateTime(2101),
+    );
+
+    if (picked != null) {
+      setTaskDueDate(index, picked);
+    }
+  }
+
+  Future<void> toggleThemeAndSave() async {
+    Get.changeTheme(Get.isDarkMode ? ThemeData.light() : ThemeData.dark());
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool('isDarkMode', Get.isDarkMode);
+    saveTask();
+  }
+
+  @override
+  void onInit() {
+    super.onInit();
+    loadTasks();
+  }
 }
