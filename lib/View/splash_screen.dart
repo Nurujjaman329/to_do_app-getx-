@@ -8,7 +8,7 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return FutureBuilder(
         future: Future.delayed(
-          Duration(seconds: 10),
+          Duration(seconds: 1),
         ),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
@@ -22,15 +22,36 @@ class SplashScreen extends StatelessWidget {
                 ),
                 child: Center(
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           ClipOval(
-                            child: Image.asset('assets/icons/to_do.png'),
+                            child: Image.asset(
+                              'assets/icons/to_do.png',
+                              width: 350.0,
+                              height: 350.0,
+                            ),
                           ),
                         ],
+                      ),
+                      Text(
+                        'TODO LIST',
+                        style: TextStyle(
+                          fontSize: 45,
+                          color: Colors.orangeAccent,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        'MVVP ARCHITECTURE WITH GETX',
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.orangeAccent,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ],
                   ),

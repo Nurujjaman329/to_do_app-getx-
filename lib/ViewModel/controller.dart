@@ -55,6 +55,13 @@ class TaskViewModel extends GetxController {
     saveTask();
   }
 
+  void toggleTaskImportance(int index) {
+    Task task = tasks[index];
+    task.isImportant = !task.isImportant;
+    tasks[index] = task;
+    saveTask();
+  }
+
   void setTaskDueDate(int index, DateTime? dueDate) {
     Task task = tasks[index];
     task.dueDate = dueDate;
