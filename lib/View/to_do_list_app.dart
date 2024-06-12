@@ -191,7 +191,9 @@ class ToDoListApp extends StatelessWidget {
                       onTap: () {
                         if (index < taskViewModel.tasks.length) {
                           Task task = taskViewModel.tasks[index];
-                          Get.to(TaskDetailsScreen());
+                          Get.to(TaskDetailsScreen(
+                            task: task,
+                          ));
                         }
                       },
                     );
