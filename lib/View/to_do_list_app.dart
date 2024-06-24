@@ -71,7 +71,8 @@ class ToDoListApp extends StatelessWidget {
                   taskViewModel.addTask(taskTitle: value),
               decoration: InputDecoration(
                 labelText: 'Enter Your Task',
-                labelStyle: TextStyle(color: Colors.black),
+                labelStyle: TextStyle(color: Colors.blue),
+                focusColor: Colors.white,
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
                     color: Colors.green,
@@ -83,7 +84,7 @@ class ToDoListApp extends StatelessWidget {
                 ),
               ),
               style: TextStyle(
-                color: Colors.black,
+                color: Colors.greenAccent,
               ),
               cursorColor: Colors.blue,
             ),
@@ -134,6 +135,7 @@ class ToDoListApp extends StatelessWidget {
                           fontWeight: task.isCompleted
                               ? FontWeight.bold
                               : FontWeight.normal,
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ),
                       subtitle: task.dueDate != null
@@ -202,6 +204,14 @@ class ToDoListApp extends StatelessWidget {
               ),
             ),
           ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => taskViewModel.toggleThemeAndSave(),
+        tooltip: 'Toggle Theme',
+        backgroundColor: Colors.green,
+        child: Icon(
+          Icons.brightness_4_sharp,
         ),
       ),
     );

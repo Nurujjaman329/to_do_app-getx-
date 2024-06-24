@@ -8,7 +8,7 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return FutureBuilder(
         future: Future.delayed(
-          Duration(seconds: 1),
+          Duration(seconds: 8),
         ),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
@@ -31,8 +31,8 @@ class SplashScreen extends StatelessWidget {
                           ClipOval(
                             child: Image.asset(
                               'assets/icons/to_do.png',
-                              width: 350.0,
-                              height: 350.0,
+                              width: 200.0,
+                              height: 200.0,
                             ),
                           ),
                         ],

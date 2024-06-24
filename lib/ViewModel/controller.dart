@@ -91,6 +91,7 @@ class TaskViewModel extends GetxController {
 
   Future<void> toggleThemeAndSave() async {
     Get.changeTheme(Get.isDarkMode ? ThemeData.light() : ThemeData.dark());
+
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setBool('isDarkMode', Get.isDarkMode);
     saveTask();
